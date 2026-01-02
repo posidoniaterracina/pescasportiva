@@ -268,3 +268,16 @@ h2{
   .gallery{grid-template-columns:1fr}
   .brand-logo{width:44px;height:44px}
 }
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
