@@ -1,31 +1,197 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ASD Posidonia Terracina</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="ASD Posidonia Terracina – Associazione Sportiva Dilettantistica di Pesca Sportiva. Attività, eventi, regolamenti e contatti." />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<header>
-  <h1>ASD Posidonia Terracina</h1>
-  <nav>
-    <a href="#">Home</a>
-    <a href="#">Chi siamo</a>
-    <a href="#">Attività</a>
-    <a href="#">Galleria</a>
-    <a href="#">Contatti</a>
-  </nav>
-</header>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#home" aria-label="ASD Posidonia Terracina">
+        <!-- Se hai messo il logo in /assets cambia in assets/logo-posidonia.png -->
+        <img class="brand-logo" src="logo-posidonia.png" alt="Logo ASD Posidonia Terracina">
+        <div class="brand-text">
+          <div class="brand-title">ASD Posidonia Terracina</div>
+          <div class="brand-subtitle">Pesca sportiva • Terracina</div>
+        </div>
+      </a>
 
-<main>
-  <h2>Benvenuti</h2>
-  <p>Associazione Sportiva Dilettantistica di Pesca Sportiva – Terracina</p>
-</main>
+      <nav class="nav">
+        <a href="#chi-siamo">Chi siamo</a>
+        <a href="#attivita">Attività</a>
+        <a href="#eventi">Eventi</a>
+        <a href="#galleria">Galleria</a>
+        <a href="#contatti">Contatti</a>
+      </nav>
+    </div>
+  </header>
 
-<footer>
-  <p>© ASD Posidonia Terracina</p>
-</footer>
+  <main id="home">
+    <section class="hero">
+      <div class="container hero-inner">
+        <h1>Passione per la pesca sportiva, rispetto del mare.</h1>
+        <p>
+          Dal mare di Terracina, un’associazione per condividere sport, amicizia e pesca responsabile.
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#contatti">Contattaci</a>
+          <a class="btn ghost" href="#eventi">Vedi eventi</a>
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-num">1990s</div>
+            <div class="stat-label">Origini</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">Terracina</div>
+            <div class="stat-label">Base</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">Sport & mare</div>
+            <div class="stat-label">Valori</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="chi-siamo" class="section">
+      <div class="container">
+        <h2>Chi siamo</h2>
+        <p class="lead">
+          L’ASD Posidonia Terracina è un’associazione di pesca sportiva nata nei primi anni ’90.
+          Promuoviamo la pesca responsabile, la socializzazione e il rispetto dell’ambiente marino.
+        </p>
+
+        <div class="cards">
+          <article class="card">
+            <h3>Mission</h3>
+            <p>Diffondere cultura sportiva e sostenibile, valorizzando territorio e tradizioni.</p>
+          </article>
+          <article class="card">
+            <h3>Attività</h3>
+            <p>Uscite sociali, giornate tecniche, eventi e iniziative sul mare.</p>
+          </article>
+          <article class="card">
+            <h3>Valori</h3>
+            <p>Rispetto, sicurezza, condivisione e tutela dell’ecosistema.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="attivita" class="section alt">
+      <div class="container">
+        <h2>Attività</h2>
+        <div class="grid-2">
+          <div class="panel">
+            <h3>Uscite e allenamenti</h3>
+            <ul>
+              <li>Uscite sociali e giornate in mare</li>
+              <li>Allenamenti tecnici e prove attrezzatura</li>
+              <li>Condivisione spot e buone pratiche</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>Regole & sicurezza</h3>
+            <ul>
+              <li>Rispetto norme e taglie minime</li>
+              <li>Dotazioni e sicurezza in mare</li>
+              <li>Educazione ambientale</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="eventi" class="section">
+      <div class="container">
+        <h2>Eventi</h2>
+        <p class="lead">Inserisci qui i prossimi appuntamenti (puoi aggiornarli quando vuoi).</p>
+
+        <div class="events">
+          <div class="event">
+            <div class="event-date">
+              <span class="d">DD</span>
+              <span class="m">MMM</span>
+            </div>
+            <div class="event-info">
+              <h3>Evento / Gara sociale</h3>
+              <p>Breve descrizione, luogo e orario.</p>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">
+              <span class="d">DD</span>
+              <span class="m">MMM</span>
+            </div>
+            <div class="event-info">
+              <h3>Giornata tecnica</h3>
+              <p>Briefing, sicurezza, tecnica e attrezzatura.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="galleria" class="section alt">
+      <div class="container">
+        <h2>Galleria</h2>
+        <p class="lead">Carica 6–12 foto reali: fanno la differenza per fiducia e “presenza”.</p>
+
+        <div class="gallery">
+          <div class="ph">Foto 1</div>
+          <div class="ph">Foto 2</div>
+          <div class="ph">Foto 3</div>
+          <div class="ph">Foto 4</div>
+          <div class="ph">Foto 5</div>
+          <div class="ph">Foto 6</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contatti" class="section">
+      <div class="container">
+        <h2>Contatti</h2>
+
+        <div class="grid-2">
+          <div class="panel">
+            <h3>Scrivici</h3>
+            <p>
+              Email: <a href="mailto:info@tuodominio.it">info@tuodominio.it</a><br>
+              WhatsApp: <a href="https://wa.me/39XXXXXXXXXX" target="_blank" rel="noopener">+39 XXXXXXXX</a><br>
+              Instagram/Facebook: <a href="#" target="_blank" rel="noopener">link social</a>
+            </p>
+            <p class="note">Sostituisci i contatti con quelli reali.</p>
+          </div>
+
+          <div class="panel">
+            <h3>Dove siamo</h3>
+            <p>Terracina (LT)</p>
+            <p class="note">Se vuoi, qui inseriamo una mappa Google (opzionale).</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> ASD Posidonia Terracina</span>
+      <span class="sep">•</span>
+      <a href="#home">Torna su</a>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 
 </body>
 </html>
+
