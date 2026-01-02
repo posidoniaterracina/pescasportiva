@@ -1,89 +1,105 @@
-/* ========== Reset base ========== */
+/* ===== RESET BASE ===== */
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
-img { max-width: 100%; height: auto; display: block; }
+img { max-width: 100%; height: auto; display: block; } /* IMPORTANT: non forza width:100% */
 
+/* ===== THEME ===== */
 :root{
-  --bg: #0f172a;
+  --brand: #0b5f73;       /* blu/teal intestazioni */
+  --bg: #f3f6f8;          /* sfondo pagina */
+  --text: #0e1a22;
+  --muted: #5b6b77;
   --card: #ffffff;
-  --text: #0b1220;
-  --muted: #52607a;
-  --brand: #0e5a73;     /* blu petrolio */
-  --brand2: #e8f3f7;    /* azzurrino chiaro */
-  --shadow: 0 10px 30px rgba(0,0,0,.12);
-  --radius: 16px;
-  --max: 1100px;
+  --shadow: 0 10px 30px rgba(0,0,0,.10);
 }
 
-/* ========== Layout ========== */
 body{
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
   color: var(--text);
-  background: linear-gradient(180deg, #0b3d52 0%, #0b3d52 240px, #f3f6f8 240px, #f3f6f8 100%);
+  line-height: 1.5;
 }
 
+/* ===== LAYOUT ===== */
 .container{
-  width: min(var(--max), calc(100% - 32px));
+  width: min(1100px, calc(100% - 32px));
   margin: 0 auto;
 }
 
-/* ========== Header ========== */
+/* ===== HEADER ===== */
 header{
-  padding: 28px 0 18px;
+  background: var(--brand);
   color: white;
+  padding: 28px 0 18px;
 }
 
-.brandbar{
+.brand{
   display: flex;
   align-items: center;
   gap: 14px;
-}
-
-.brandbar img{
-  width: 64px;
-  height: 64px;
-  object-fit: contain;
-  background: rgba(255,255,255,.08);
-  border-radius: 14px;
-  padding: 8px;
-}
-
-.brandbar h1{
-  margin: 0;
-  font-size: clamp(22px, 3vw, 34px);
-  letter-spacing: .2px;
-}
-
-/* ========== Nav ========== */
-nav{
-  margin-top: 14px;
-  display: flex;
+  justify-content: center;
   flex-wrap: wrap;
-  gap: 10px;
+  text-align: center;
+}
+
+/* LOGO: qui lo “blocchiamo” a misura */
+.brand img{
+  width: 88px;     /* cambia qui se lo vuoi più grande/piccolo */
+  height: 88px;
+  object-fit: contain;
+  border-radius: 12px;
+  background: rgba(255,255,255,.08);
+  padding: 6px;
+}
+
+.brand h1{
+  margin: 0;
+  font-size: clamp(26px, 3.6vw, 40px);
+  letter-spacing: .3px;
+}
+
+.brand p{
+  margin: 0;
+  color: rgba(255,255,255,.85);
+  font-size: 15px;
+}
+
+/* ===== NAV ===== */
+nav{
+  margin-top: 18px;
+}
+
+nav ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 nav a{
-  text-decoration: none;
   color: white;
+  text-decoration: none;
   font-weight: 600;
   padding: 10px 14px;
   border-radius: 999px;
-  background: rgba(255,255,255,.10);
-  border: 1px solid rgba(255,255,255,.16);
-  transition: transform .15s ease, background .15s ease;
+  transition: background .2s ease;
 }
 
 nav a:hover{
-  transform: translateY(-1px);
-  background: rgba(255,255,255,.16);
+  background: rgba(255,255,255,.14);
 }
 
-/* ========== Main sections ========== */
-main{ padding: 26px 0 44px; }
+/* ===== SECTIONS ===== */
+main{
+  padding: 26px 0 40px;
+}
 
 .section{
   background: var(--card);
-  border-radius: var(--radius);
+  border-radius: 18px;
   box-shadow: var(--shadow);
   padding: 22px;
   margin: 18px 0;
@@ -91,145 +107,59 @@ main{ padding: 26px 0 44px; }
 
 .section h2{
   margin: 0 0 10px;
-  font-size: 22px;
+  font-size: 26px;
 }
 
 .section p{
   margin: 0;
   color: var(--muted);
-  line-height: 1.55;
 }
 
-/* ========== Hero / intro ========== */
-.hero{
-  display: grid;
-  grid-template-columns: 1.1fr .9fr;
-  gap: 18px;
-  align-items: center;
-}
-
-.hero .box{
-  background: linear-gradient(180deg, var(--brand2), #ffffff);
-  border: 1px solid rgba(14,90,115,.10);
-  border-radius: var(--radius);
-  padding: 18px;
-}
-
-.badge{
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 13px;
-  font-weight: 700;
-  color: #0b3d52;
-  background: rgba(14,90,115,.10);
-  padding: 8px 12px;
-  border-radius: 999px;
-  margin-bottom: 10px;
-}
-
-.hero .cta{
-  margin-top: 12px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.button{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 14px;
-  border-radius: 12px;
-  text-decoration: none;
-  font-weight: 700;
-  border: 1px solid rgba(0,0,0,.08);
-  background: white;
-  color: var(--text);
-  transition: transform .15s ease, box-shadow .15s ease;
-}
-
-.button.primary{
-  background: #0e5a73;
-  color: white;
-  border-color: rgba(255,255,255,.18);
-}
-
-.button:hover{
-  transform: translateY(-1px);
-  box-shadow: 0 10px 20px rgba(0,0,0,.10);
-}
-
-/* ========== Galleria ========== */
-/* Usa in HTML: <div class="gallery"> ... <a class="ph" href="foto/xxx.jpg"><img ...></a> ... </div> */
-
-.gallery{
+/* ===== GALLERIA ===== */
+.gallery-grid{
+  margin-top: 14px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 14px;
 }
 
-.ph{
+.gallery-grid a{
+  display: block;
   border-radius: 14px;
   overflow: hidden;
-  background: #0b3d5210;
-  border: 1px solid rgba(0,0,0,.06);
-  box-shadow: 0 10px 22px rgba(0,0,0,.08);
-  transition: transform .15s ease;
+  box-shadow: 0 8px 18px rgba(0,0,0,.10);
+  background: #000;
 }
 
-.ph:hover{ transform: translateY(-2px); }
-
-.ph img{
+.gallery-grid img{
   width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
+  height: 220px;          /* altezza uniforme */
+  object-fit: cover;      /* taglio bello */
+  transform: scale(1.01);
+  transition: transform .25s ease;
 }
 
-/* caption opzionale */
-.ph span{
-  display: block;
-  padding: 10px 12px;
-  font-size: 13px;
-  color: var(--muted);
-  background: white;
+.gallery-grid a:hover img{
+  transform: scale(1.06);
 }
 
-/* ========== Contatti ========== */
-.contact-grid{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-}
-
-.card-mini{
-  border-radius: 14px;
-  padding: 14px;
-  border: 1px solid rgba(0,0,0,.06);
-  background: linear-gradient(180deg, #fff, #f7fbfd);
-}
-
-.card-mini strong{
-  display: block;
-  margin-bottom: 6px;
-}
-
-/* ========== Footer ========== */
+/* ===== FOOTER ===== */
 footer{
-  padding: 18px 0 30px;
-  color: rgba(255,255,255,.78);
+  background: var(--brand);
+  color: rgba(255,255,255,.9);
   text-align: center;
-  background: #0b3d52;
+  padding: 18px 0;
+  margin-top: 30px;
 }
 
-/* ========== Responsive ========== */
+/* ===== RESPONSIVE ===== */
 @media (max-width: 900px){
-  .hero{ grid-template-columns: 1fr; }
-  .gallery{ grid-template-columns: repeat(2, 1fr); }
-  .contact-grid{ grid-template-columns: 1fr; }
+  .gallery-grid{ grid-template-columns: repeat(2, 1fr); }
 }
 
-@media (max-width: 520px){
-  nav a{ padding: 9px 12px; }
-  .gallery{ grid-template-columns: 1fr; }
+@media (max-width: 560px){
+  .brand img{ width: 74px; height: 74px; }
+  .gallery-grid{ grid-template-columns: 1fr; }
+  .gallery-grid img{ height: 210px; }
 }
+
