@@ -18,12 +18,14 @@
       </div>
     </div>
 
+    <!-- MENU -->
     <nav class="nav">
       <a href="#home">Home</a>
       <a href="#chi-siamo">Chi siamo</a>
       <a href="#attivita">Attività</a>
       <a href="#galleria">Galleria</a>
       <a href="#contatti">Contatti</a>
+      <a href="area-soci.html">Area Soci</a>
     </nav>
   </header>
 
@@ -91,14 +93,13 @@
     <p>© <span id="year"></span> ASD Posidonia Terracina</p>
   </footer>
 
-  <!-- SCRIPT -->
   <script>
     // anno automatico
     document.getElementById("year").textContent = new Date().getFullYear();
 
     // galleria automatica
     const gallery = document.getElementById("gallery");
-    const maxImages = 30; // quante foto MASSIME prevedi
+    const maxImages = 30;
 
     for (let i = 1; i <= maxImages; i++) {
       const img = new Image();
