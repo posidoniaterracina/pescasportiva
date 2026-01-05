@@ -1,1 +1,124 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Area Soci – ASD Posidonia Terracina</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="brand">
+    <img class="brand-logo" src="logo-posidonia.png" alt="Logo ASD Posidonia Terracina">
+    <div class="brand-text">
+      <h1>Area Soci</h1>
+      <p>Accesso riservato ai soci</p>
+    </div>
+  </div>
+
+  <nav class="nav">
+    <a href="index.html">← Torna al sito</a>
+  </nav>
+</header>
+
+<main class="container">
+
+  <!-- LOGIN -->
+  <section id="login-box" class="section">
+    <h2>Accesso Soci</h2>
+
+    <div class="card">
+      <label>
+        Username<br>
+        <input type="text" id="username">
+      </label><br><br>
+
+      <label>
+        Password<br>
+        <input type="password" id="password">
+      </label><br><br>
+
+      <button onclick="login()">Accedi</button>
+
+      <p id="login-error" style="color:red; margin-top:10px; display:none;">
+        Credenziali non valide
+      </p>
+    </div>
+  </section>
+
+  <!-- AREA RISERVATA -->
+  <section id="area-riservata" class="section" style="display:none;">
+
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+      <h2>Bacheca Soci</h2>
+      <button onclick="logout()">Logout</button>
+    </div>
+
+    <!-- COMUNICAZIONI -->
+    <div class="card" style="margin-top:20px;">
+      <h3>📢 Comunicazioni</h3>
+      <ul>
+        <li>Assemblea soci – 15 marzo ore 18:00</li>
+        <li>Gara sociale di primavera – calendario in arrivo</li>
+        <li>Rinnovo tesseramento 2025</li>
+      </ul>
+    </div>
+
+    <!-- ARCHIVIO -->
+    <div class="card" style="margin-top:20px;">
+      <h3>📁 Archivio Documenti</h3>
+      <ul>
+        <li><a href="documenti/regolamento.pdf" target="_blank">Regolamento ASD</a></li>
+        <li><a href="documenti/verbale1.pdf" target="_blank">Verbale assemblea</a></li>
+      </ul>
+    </div>
+
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>© <span id="year"></span> ASD Posidonia Terracina</p>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  /* === CREDENZIALI SOCI === */
+  const soci = {
+    "posidonia": "posidonia"
+  };
+
+  function login() {
+    const user = document.getElementById("username").value;
+    const pass = document.getElementById("password").value;
+
+    if (soci[user] && soci[user] === pass) {
+      localStorage.setItem("socioLoggato", "true");
+      mostraArea();
+    } else {
+      document.getElementById("login-error").style.display = "block";
+    }
+  }
+
+  function logout() {
+    localStorage.removeItem("socioLoggato");
+    location.reload();
+  }
+
+  function mostraArea() {
+    document.getElementById("login-box").style.display = "none";
+    document.getElementById("area-riservata").style.display = "block";
+  }
+
+  // accesso persistente
+  if (localStorage.getItem("socioLoggato") === "true") {
+    mostraArea();
+  }
+</script>
+
+</body>
+</html>
 
