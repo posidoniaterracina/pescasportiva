@@ -1,1 +1,118 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mappa Secche di Pesca – ASD Posidonia Terracina</title>
+
+  <!-- Leaflet CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 16px;
+      background: #0a3d62;
+      color: #fff;
+    }
+
+    header a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    #map {
+      width: 100%;
+      height: calc(100vh - 60px);
+    }
+
+    .info {
+      padding: 16px;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      background: #f4f6f8;
+    }
+
+    .info h2 {
+      margin-top: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div>Mappa secche di pesca</div>
+    <a href="index.html">← Torna al sito</a>
+  </header>
+
+  <!-- MAPPA -->
+  <div id="map"></div>
+
+  <!-- INFO / DISCLAIMER -->
+  <div class="info">
+    <h2>Nota informativa</h2>
+    <p>
+      La mappa ha finalità esclusivamente informative e divulgative.
+      I dati rappresentati non costituiscono cartografia nautica ufficiale
+      e non devono essere utilizzati per la navigazione.
+    </p>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <script>
+    // Inizializzazione mappa (mare antistante Terracina)
+    const map = L.map('map').setView([41.290, 13.250], 11);
+
+    // OpenSeaMap (segnalamenti nautici)
+    L.tileLayer('https://tiles.openseamap.org/seamark/{z}/{x}/{y}.png', {
+      attribution: '© OpenSeaMap contributors'
+    }).addTo(map);
+
+    // Base OpenStreetMap (serve come fondo neutro)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    // ESEMPIO: secca di pesca (punto)
+    L.marker([41.300, 13.270])
+      .addTo(map)
+      .bindPopup('Secca di pesca');
+
+    // ESEMPIO: ciglio / batimetria (linea)
+    L.polyline(
+      [
+        [41.295, 13.260],
+        [41.305, 13.280]
+      ],
+      { color: 'red' }
+    ).addTo(map).bindPopup('Ciglio del fondale');
+
+    // ESEMPIO: zona di pesca (area)
+    L.polygon(
+      [
+        [41.285, 13.240],
+        [41.285, 13.260],
+        [41.300, 13.260],
+        [41.300, 13.240]
+      ],
+      { color: 'orange' }
+    ).addTo(map).bindPopup('Zona di pesca');
+  </script>
+
+</body>
+</html>
 
