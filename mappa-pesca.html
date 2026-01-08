@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mappa Secche e Fondali – ASD Posidonia Terracina</title>
+  <title>Mappa Secche di Pesca – ASD Posidonia Terracina</title>
 
-  <!-- Leaflet -->
+  <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 
   <style>
@@ -34,18 +34,11 @@
       height: calc(100vh - 60px);
     }
 
-    .legend {
-      padding: 12px 16px;
+    .info {
+      padding: 14px 16px;
       background: #f4f6f8;
       font-size: 0.9rem;
-    }
-
-    .legend span {
-      display: inline-block;
-      width: 16px;
-      height: 16px;
-      margin-right: 6px;
-      vertical-align: middle;
+      line-height: 1.4;
     }
   </style>
 </head>
@@ -53,90 +46,64 @@
 <body>
 
 <header>
-  <div>Mappa secche e fondali</div>
+  <div>Mappa secche di pesca</div>
   <a href="indice.html">← Torna al sito</a>
 </header>
 
 <div id="map"></div>
 
-<div class="legend">
-  <strong>Legenda fondali (indicativa)</strong><br>
-  <span style="background:#a8e6ff"></span> 0–20 m &nbsp;
-  <span style="background:#4da6ff"></span> 20–40 m &nbsp;
-  <span style="background:#0050b3"></span> 40–80 m
-  <p>
-    Le profondità sono rappresentate in modo indicativo
-    a scopo informativo e divulgativo.
-    Non costituiscono cartografia nautica ufficiale.
-  </p>
+<div class="info">
+  <strong>Nota informativa</strong><br>
+  Le posizioni indicate hanno finalità esclusivamente informative e divulgative.
+  Non costituiscono cartografia nautica ufficiale e non devono essere utilizzate
+  per la navigazione.
 </div>
 
+<!-- Leaflet JS -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <script>
-  const map = L.map('map').setView([41.250, 13.250], 10);
+  // Inizializzazione mappa
+  // Zoom leggermente più alto per visione d'insieme
+  const map = L.map('map').setView([41.240, 13.230], 9);
 
   // Base map
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© OpenStreetMap'
+    attribution: '© OpenStreetMap contributors'
   }).addTo(map);
 
   // OpenSeaMap overlay
   L.tileLayer('https://tiles.openseamap.org/seamark/{z}/{x}/{y}.png', {
-    attribution: '© OpenSeaMap'
+    attribution: '© OpenSeaMap contributors'
   }).addTo(map);
-
-  // =========================
-  // AREE DI PROFONDITÀ (INDICATIVE)
-  // =========================
-
-  // 0–20 m
-  L.polygon([
-    [41.300, 13.200],
-    [41.300, 13.350],
-    [41.260, 13.350],
-    [41.260, 13.200]
-  ], { color: '#a8e6ff', fillOpacity: 0.4 }).addTo(map);
-
-  // 20–40 m
-  L.polygon([
-    [41.260, 13.180],
-    [41.260, 13.380],
-    [41.220, 13.380],
-    [41.220, 13.180]
-  ], { color: '#4da6ff', fillOpacity: 0.4 }).addTo(map);
-
-  // 40–80 m
-  L.polygon([
-    [41.220, 13.140],
-    [41.220, 13.420],
-    [41.170, 13.420],
-    [41.170, 13.140]
-  ], { color: '#0050b3', fillOpacity: 0.4 }).addTo(map);
 
   // =========================
   // SECCHE DI PESCA
   // =========================
 
-  // Sperlonga
+  // Secca di Sperlonga
   L.marker([41.2183333, 13.3838889])
     .addTo(map)
-    .bindPopup('<strong>Secca di Sperlonga</strong><br>Fondali stimati 40–80 m');
+    .bindPopup(
+      '<strong>Secca di Sperlonga</strong><br>' +
+      'Zona di pesca – fondali medi'
+    );
 
-  // Spartiti
-  L.marker([41.28082817, 13.27065236])
-    .addTo(map)
-    .bindPopup('<strong>Secca degli Spartiti</strong><br>Zona di pesca – Terracina');
-
-  // Quadro
+  // Secca del Quadro (Circeo)
   L.marker([41.22287197, 13.10613266])
     .addTo(map)
-    .bindPopup('<strong>Secca del Quadro</strong><br>Largo Circeo');
+    .bindPopup(
+      '<strong>Secca del Quadro</strong><br>' +
+      'Largo Circeo'
+    );
 
-  // Chierico
+  // Secca del Chierico (Terracina)
   L.marker([41.26736067, 13.20471613])
     .addTo(map)
-    .bindPopup('<strong>Secca del Chierico</strong><br>Zona di pesca – Terracina');
+    .bindPopup(
+      '<strong>Secca del Chierico</strong><br>' +
+      'Zona di pesca – Terracina'
+    );
 
 </script>
 
