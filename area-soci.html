@@ -71,4 +71,66 @@
       </ul>
     </div>
 
-    <!-- ARCHIVIO --
+    <!-- ARCHIVIO -->
+    <div class="card" style="margin-top:20px;">
+      <h3>📁 Archivio Documenti</h3>
+      <ul>
+        <li>
+          <a href="documenti/regolamento-asd.pdf" target="_blank">
+            Regolamento ASD
+          </a>
+        </li>
+        <li>
+          <a href="documenti/verbale-assemblea-2025.pdf" target="_blank">
+            Verbale assemblea 2025
+          </a>
+        </li>
+      </ul>
+    </div>
+
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>© <span id="year"></span> ASD Posidonia Terracina</p>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // === CREDENZIALI SOCI (semplice) ===
+  const soci = {
+    "posidonia": "posidonia"
+  };
+
+  function login() {
+    const user = document.getElementById("username").value;
+    const pass = document.getElementById("password").value;
+
+    if (soci[user] && soci[user] === pass) {
+      localStorage.setItem("socioLoggato", "true");
+      mostraArea();
+    } else {
+      document.getElementById("login-error").style.display = "block";
+    }
+  }
+
+  function logout() {
+    localStorage.removeItem("socioLoggato");
+    location.reload();
+  }
+
+  function mostraArea() {
+    document.getElementById("login-box").style.display = "none";
+    document.getElementById("area-riservata").style.display = "block";
+  }
+
+  // accesso persistente
+  if (localStorage.getItem("socioLoggato") === "true") {
+    mostraArea();
+  }
+</script>
+
+</body>
+</html>
