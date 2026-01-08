@@ -53,14 +53,16 @@
     <a href="indice.html">← Torna al sito</a>
   </header>
 
+  <!-- MAPPA -->
   <div id="map"></div>
 
+  <!-- INFO -->
   <div class="info">
-    <strong>Nota informativa:</strong>
+    <strong>Nota informativa</strong>
     <p>
       La mappa ha finalità esclusivamente informative e divulgative.
-      Non costituisce cartografia nautica ufficiale
-      e non deve essere utilizzata per la navigazione.
+      Le coordinate riportate derivano da fonti non ufficiali e
+      non costituiscono cartografia nautica.
     </p>
   </div>
 
@@ -68,43 +70,47 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
   <script>
-    // Inizializzazione mappa (Terracina)
-    const map = L.map('map').setView([41.290, 13.250], 11);
+    // Inizializzazione mappa (area Terracina - Sperlonga - Circeo)
+    const map = L.map('map').setView([41.250, 13.250], 10);
 
-    // Base map
+    // Base OpenStreetMap
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '© OpenStreetMap contributors'
     }).addTo(map);
 
-    // OpenSeaMap overlay
+    // Overlay OpenSeaMap
     L.tileLayer('https://tiles.openseamap.org/seamark/{z}/{x}/{y}.png', {
       attribution: '© OpenSeaMap contributors'
     }).addTo(map);
 
-    // Punto di esempio (secca)
-    L.marker([41.300, 13.270])
+    // ======================
+    // SECCHE DI PESCA
+    // ======================
+
+    // Secca di Sperlonga
+    L.marker([41.2183333, 13.3838889])
       .addTo(map)
-      .bindPopup('Secca di pesca');
+      .bindPopup(
+        '<strong>Secca di Sperlonga</strong><br>' +
+        'Zona di pesca – fondali medi'
+      );
 
-    // Linea di esempio (ciglio)
-    L.polyline(
-      [
-        [41.295, 13.260],
-        [41.305, 13.280]
-      ],
-      { color: 'red' }
-    ).addTo(map).bindPopup('Ciglio del fondale');
+    // Secca degli Spartiti (Terracina)
+    L.marker([41.28082817, 13.27065236])
+      .addTo(map)
+      .bindPopup(
+        '<strong>Secca degli Spartiti</strong><br>' +
+        'Terracina'
+      );
 
-    // Area di esempio (zona di pesca)
-    L.polygon(
-      [
-        [41.285, 13.240],
-        [41.285, 13.260],
-        [41.300, 13.260],
-        [41.300, 13.240]
-      ],
-      { color: 'orange' }
-    ).addTo(map).bindPopup('Zona di pesca');
+    // Secca del Quadro (Circeo)
+    L.marker([41.22287197, 13.10613266])
+      .addTo(map)
+      .bindPopup(
+        '<strong>Secca del Quadro</strong><br>' +
+        'Largo Circeo'
+      );
+
   </script>
 
 </body>
