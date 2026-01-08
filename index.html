@@ -9,111 +9,113 @@
 
 <body>
 
-  <header class="site-header">
-    <div class="brand">
-      <img class="brand-logo" src="logo-posidonia.png" alt="Logo ASD Posidonia Terracina">
-      <div class="brand-text">
-        <h1>ASD Posidonia Terracina</h1>
-        <p>Associazione Sportiva Dilettantistica di Pesca Sportiva – Terracina</p>
+<header class="site-header">
+  <div class="brand">
+    <img class="brand-logo" src="logo-posidonia.png" alt="Logo ASD Posidonia Terracina">
+    <div class="brand-text">
+      <h1>ASD Posidonia Terracina</h1>
+      <p>Associazione Sportiva Dilettantistica di Pesca Sportiva – Terracina</p>
+    </div>
+  </div>
+
+  <nav class="nav">
+    <a href="#home">Home</a>
+    <a href="#chi-siamo">Chi siamo</a>
+    <a href="#attivita">Attività</a>
+    <a href="#galleria">Galleria</a>
+    <a href="#contatti">Contatti</a>
+    <a href="area-soci.html">Area Soci</a>
+  </nav>
+</header>
+
+<main id="home" class="container">
+
+  <section class="hero">
+    <h2>Benvenuti</h2>
+    <p>
+      Passione, mare e pesca sportiva: eventi, gare, uscite e attività dedicate
+      a chi ama vivere la costa di Terracina con rispetto e spirito di squadra.
+    </p>
+  </section>
+
+  <section id="chi-siamo" class="section">
+    <h2>Chi siamo</h2>
+    <p>
+      La A.S.D. Posidonia è un’associazione dilettantistica di pesca sportiva,
+      fondata nel 1992 da un gruppo di amici uniti dalla passione per il mare,
+      la pesca e il diporto. L’associazione promuove la pesca responsabile
+      nello specchio di mare antistante Terracina.
+    </p>
+  </section>
+
+  <section id="attivita" class="section">
+    <h2>Attività</h2>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Gara di Pesca 2026</h3>
+        <p>
+          Data prevista per la gara sociale 2026.
+          Regolamento e modalità di iscrizione saranno pubblicati a breve.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Secche e zone di pesca</h3>
+        <p>
+          Consulta la mappa interattiva delle secche e delle principali zone di pesca
+          nello specchio di mare antistante Terracina.
+        </p>
+        <a href="mappa-pesca.html" class="card-link">
+          Apri la mappa delle zone di pesca →
+        </a>
+      </div>
+
+      <div class="card">
+        <h3>Ambiente</h3>
+        <p>
+          Rispetto del mare e delle coste attraverso sensibilizzazione,
+          buone pratiche e tutela dell’ecosistema marino.
+        </p>
       </div>
     </div>
+  </section>
 
-    <!-- MENU -->
-    <nav class="nav">
-      <a href="#home">Home</a>
-      <a href="#chi-siamo">Chi siamo</a>
-      <a href="#attivita">Attività</a>
-      <a href="#galleria">Galleria</a>
-      <a href="#contatti">Contatti</a>
-      <a href="area-soci.html">Area Soci</a>
-    </nav>
-  </header>
+  <!-- GALLERIA -->
+  <section id="galleria" class="section">
+    <h2>Galleria</h2>
+    <p class="section-subtitle">
+      Alcuni scatti delle nostre attività e degli eventi.
+    </p>
 
-  <main id="home" class="container">
+    <div class="gallery" id="gallery"></div>
+  </section>
 
-    <section class="hero">
-      <h2>Benvenuti</h2>
-      <p>
-        Passione, mare e pesca sportiva: eventi, gare, uscite e attività dedicate
-        a chi ama vivere la costa di Terracina con rispetto e spirito di squadra.
-      </p>
-    </section>
+  <section id="contatti" class="section">
+    <h2>Contatti</h2>
 
-    <section id="chi-siamo" class="section">
-      <h2>Chi siamo</h2>
-      <p>
-        La A.S.D. Posidonia è un’associazione dilettantistica di pesca sportiva,
-        fondata nel 1992 da un gruppo di amici uniti dalla passione per il mare,
-        la pesca e il diporto. L’associazione promuove la pesca responsabile
-        nello specchio di mare antistante Terracina.
-      </p>
-    </section>
+    <div class="contact-box">
+      <p><strong>Email:</strong> <a href="mailto:info@tuadominio.it">info@tuadominio.it</a></p>
+      <p><strong>WhatsApp:</strong> <a href="https://wa.me/39XXXXXXXXXX">+39 XXXXXXXX</a></p>
+      <p><strong>Social:</strong> <a href="#">Facebook / Instagram</a></p>
+    </div>
+  </section>
 
-    <section id="attivita" class="section">
-      <h2>Attività</h2>
+</main>
 
-      <div class="cards">
-        <div class="card">
-          <h3>Gara di Pesca 2026</h3>
-          <p>
-            Data prevista per la gara sociale 2026.
-            Regolamento e modalità di iscrizione saranno pubblicati a breve.
-          </p>
-        </div>
+<footer class="site-footer">
+  <p>© <span id="year"></span> ASD Posidonia Terracina</p>
+</footer>
 
-        <div class="card">
-          <h3>Secche e zone di pesca</h3>
-          <p>
-            Consulta la mappa interattiva delle secche e delle principali zone di pesca
-            nello specchio di mare antistante Terracina.
-          </p>
-          <a href="mappa-pesca.html" class="card-link">
-            Apri la mappa delle zone di pesca →
-          </a>
-        </div>
+<script>
+  // anno automatico
+  document.getElementById("year").textContent = new Date().getFullYear();
 
-        <div class="card">
-          <h3>Ambiente</h3>
-          <p>
-            Rispetto del mare e delle coste attraverso sensibilizzazione,
-            buone pratiche e tutela dell’ecosistema marino.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- GALLERIA -->
-    <section id="galleria" class="section">
-      <h2>Galleria</h2>
-      <p class="section-subtitle">
-        Alcuni scatti delle nostre attività e degli eventi.
-      </p>
-
-      <div class="gallery" id="gallery"></div>
-    </section>
-
-    <section id="contatti" class="section">
-      <h2>Contatti</h2>
-
-      <div class="contact-box">
-        <p><strong>Email:</strong> <a href="mailto:info@tuadominio.it">info@tuadominio.it</a></p>
-        <p><strong>WhatsApp:</strong> <a href="https://wa.me/39XXXXXXXXXX" target="_blank" rel="noopener">+39 XXXXXXXX</a></p>
-        <p><strong>Social:</strong> <a href="#" target="_blank" rel="noopener">Facebook / Instagram</a></p>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="site-footer">
-    <p>© <span id="year"></span> ASD Posidonia Terracina</p>
-  </footer>
-
-  <script>
-    // anno automatico
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    // galleria automatica
+  // galleria automatica (robusta)
+  document.addEventListener("DOMContentLoaded", function () {
     const gallery = document.getElementById("gallery");
+    if (!gallery) return;
+
     const maxImages = 30;
 
     for (let i = 1; i <= maxImages; i++) {
@@ -122,14 +124,15 @@
       img.alt = `Attività ASD Posidonia Terracina ${i}`;
       img.loading = "lazy";
 
-      img.onload = () => {
+      img.onload = function () {
         const figure = document.createElement("figure");
         figure.className = "gallery-item";
         figure.appendChild(img);
         gallery.appendChild(figure);
       };
     }
-  </script>
+  });
+</script>
 
 </body>
 </html>
