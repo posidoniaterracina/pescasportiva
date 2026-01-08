@@ -2,14 +2,16 @@
    VARIABILI GLOBALI
 ================================ */
 :root {
-  --blu-posidonia: #0b3c5d; /* blu del logo */
-  --blu-chiaro: #e6f0f6;
-  --testo-principale: #1f2933;
-  --grigio-chiaro: #f5f7fa;
+  --blu: #0b3c5d;
+  --azzurro: #2f7fbf;
+  --azzurro-chiaro: #e8f2f9;
+  --sfondo: #f4f6f9;
+  --testo: #1f2933;
+  --bianco: #ffffff;
 }
 
 /* ===============================
-   RESET BASE
+   RESET
 ================================ */
 * {
   margin: 0;
@@ -19,17 +21,17 @@
 
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  color: var(--testo-principale);
-  background-color: var(--grigio-chiaro);
-  line-height: 1.6;
+  color: var(--testo);
+  background-color: var(--sfondo);
+  line-height: 1.65;
 }
 
 /* ===============================
-   HEADER / TOPBAR
+   HEADER
 ================================ */
 .site-header {
-  background-color: var(--blu-posidonia);
-  padding: 16px 24px;
+  background: linear-gradient(135deg, var(--blu), #06283d);
+  padding: 20px 24px;
 }
 
 .brand {
@@ -39,16 +41,18 @@ body {
 }
 
 .brand-logo {
-  width: 96px;
-  height: 96px;
+  width: 88px;
+  height: 88px;
   border-radius: 50%;
-  background-color: var(--blu-posidonia);
+  background: #fff;
   object-fit: contain;
+  padding: 6px;
 }
 
 .brand-text h1 {
   color: #fff;
-  font-size: 1.6rem;
+  font-size: 1.7rem;
+  font-weight: 700;
 }
 
 .brand-text p {
@@ -57,49 +61,50 @@ body {
 }
 
 /* ===============================
-   NAVIGAZIONE
+   NAV
 ================================ */
 .nav {
-  margin-top: 12px;
+  margin-top: 16px;
   display: flex;
-  gap: 20px;
+  gap: 18px;
   flex-wrap: wrap;
 }
 
 .nav a {
-  color: #ffffff;
+  color: #fff;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 0.95rem;
-  opacity: 0.9;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background .2s ease;
 }
 
 .nav a:hover {
-  opacity: 1;
-  text-decoration: underline;
+  background: rgba(255,255,255,0.15);
 }
 
 /* ===============================
-   LAYOUT GENERALE
+   LAYOUT
 ================================ */
 .container {
   max-width: 1100px;
   margin: auto;
-  padding: 32px 20px;
+  padding: 36px 20px;
 }
 
 .section {
-  margin-top: 48px;
+  margin-top: 56px;
 }
 
 .section h2 {
-  color: var(--blu-posidonia);
-  font-size: 1.8rem;
-  margin-bottom: 12px;
+  color: var(--blu);
+  font-size: 1.9rem;
+  margin-bottom: 14px;
 }
 
 .section-subtitle {
-  margin-bottom: 24px;
+  margin-bottom: 26px;
   color: #555;
 }
 
@@ -107,34 +112,63 @@ body {
    HERO
 ================================ */
 .hero {
-  background-color: var(--blu-chiaro);
-  padding: 32px;
-  border-radius: 12px;
+  background: linear-gradient(135deg, var(--azzurro-chiaro), #ffffff);
+  padding: 36px;
+  border-radius: 18px;
 }
 
 .hero h2 {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 /* ===============================
-   CARDS ATTIVITÀ
+   CARDS
 ================================ */
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
+  gap: 24px;
 }
 
 .card {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 14px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  background: var(--bianco);
+  padding: 24px;
+  border-radius: 18px;
+  box-shadow: 0 8px 26px rgba(0,0,0,0.08);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 36px rgba(0,0,0,0.12);
 }
 
 .card h3 {
-  margin-bottom: 8px;
-  color: var(--blu-posidonia);
+  margin-bottom: 10px;
+  color: var(--blu);
+}
+
+/* ===============================
+   BOTTONI / LINK AZIONE
+================================ */
+button,
+.card-link {
+  display: inline-block;
+  margin-top: 10px;
+  background: var(--azzurro);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 10px;
+  text-decoration: none;
+  border: none;
+  font-weight: 600;
+  transition: background .2s ease, transform .2s ease;
+}
+
+button:hover,
+.card-link:hover {
+  background: var(--blu);
+  transform: translateY(-1px);
 }
 
 /* ===============================
@@ -143,13 +177,13 @@ body {
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
+  gap: 18px;
 }
 
 .gallery-item {
   overflow: hidden;
-  border-radius: 14px;
-  background-color: #000;
+  border-radius: 18px;
+  background: #000;
 }
 
 .gallery-item img {
@@ -157,25 +191,39 @@ body {
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.3s ease;
+  transition: transform .35s ease;
 }
 
 .gallery-item img:hover {
-  transform: scale(1.05);
+  transform: scale(1.07);
+}
+
+/* ===============================
+   AREA SOCI (KEY PART)
+================================ */
+#login-box .card {
+  max-width: 420px;
+  margin: auto;
+  border-left: 6px solid var(--azzurro);
+}
+
+#area-riservata .card {
+  border-left: 6px solid var(--blu);
 }
 
 /* ===============================
    CONTATTI
 ================================ */
 .contact-box {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 14px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  background: var(--bianco);
+  padding: 24px;
+  border-radius: 18px;
+  box-shadow: 0 8px 26px rgba(0,0,0,0.08);
 }
 
 .contact-box a {
-  color: var(--blu-posidonia);
+  color: var(--blu);
+  font-weight: 600;
   text-decoration: none;
 }
 
@@ -187,9 +235,9 @@ body {
    FOOTER
 ================================ */
 .site-footer {
-  margin-top: 60px;
-  padding: 20px;
-  background-color: var(--blu-posidonia);
+  margin-top: 70px;
+  padding: 22px;
+  background: var(--blu);
   text-align: center;
   color: #fff;
   font-size: 0.9rem;
@@ -201,12 +249,12 @@ body {
 @media (max-width: 768px) {
 
   .brand-logo {
-    width: 72px;
-    height: 72px;
+    width: 70px;
+    height: 70px;
   }
 
   .brand-text h1 {
-    font-size: 1.3rem;
+    font-size: 1.35rem;
   }
 
   .brand-text p {
@@ -218,10 +266,10 @@ body {
   }
 
   .container {
-    padding: 24px 16px;
+    padding: 26px 16px;
   }
 
   .hero {
-    padding: 24px;
+    padding: 26px;
   }
 }
